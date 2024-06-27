@@ -11,4 +11,6 @@
     <string name="login">Login</string>
     <string name="admin_login">I am an admin</string>
     <string name="regular_customer_login">Regular Customer</string>
+    <string name="create_account">Create Account</string>
+    <string name="usernameLabel">Username</string>
 </resources>
