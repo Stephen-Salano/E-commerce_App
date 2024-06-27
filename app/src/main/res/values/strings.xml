@@ -3,4 +3,12 @@
     <string name="Logo_Slogan">Find, Discover, Enjoy</string>
     <string name="Login_Text">Already have an account? Login</string>
     <string name="Register_Text">Join Now</string>
+    <string name="phoneNumberLabel">Phone Number</string>
+    <string name="passwordHint">Password</string>
+    <string name="LoginImgBackgroundDescription">Login Background</string>
+    <string name="remeber_me">Remeber Me</string>
+    <string name="forget_password">Forget Password?</string>
+    <string name="login">Login</string>
+    <string name="admin_login">I am an admin</string>
+    <string name="regular_customer_login">Regular Customer</string>
 </resources>

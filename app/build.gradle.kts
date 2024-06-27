@@ -48,4 +48,12 @@ dependencies {
     // When using the BoM, don't specify versions in Firebase dependencies
     // By using the Firebase Android BoM, your app will always use compatible Firebase lib versions
     implementation(libs.firebase.analytics)
+    // For icons on login page
+//    implementation (libs.material.v190) // Replace with official Material library if possible
+//    implementation (libs.cardview) // Update to the latest version
+//    implementation(libs.recyclerview) // Update to the latest version
+    implementation (libs.rey5137.material)
+    implementation (libs.cardview)
+    implementation (libs.recyclerview.v100)
+
 }
