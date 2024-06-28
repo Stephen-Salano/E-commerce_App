@@ -74,8 +74,6 @@
         android:textSize="17sp"
         android:textStyle="bold" />
 
-
-
     <Button
         android:id="@+id/register_btn"
         android:layout_width="match_parent"
@@ -91,6 +89,7 @@
         android:text="@string/create_account"
         android:textColor="@android:color/white"
         />
+
 
 
 </RelativeLayout>

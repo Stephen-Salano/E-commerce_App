@@ -13,4 +13,6 @@
     <string name="regular_customer_login">Regular Customer</string>
     <string name="create_account">Create Account</string>
     <string name="usernameLabel">Username</string>
+    <string name="loadingLinearProgressIndicator">Loading...</string>
+    <string name="please_wait">Please wait...</string>
 </resources>
