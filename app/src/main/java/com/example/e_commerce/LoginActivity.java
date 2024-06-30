@@ -17,12 +17,15 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.example.e_commerce.Model.Users;
-import com.google.android.material.progressindicator.LinearProgressIndicator;
+import com.example.e_commerce.Prevalent.Prevalent;
+import com.rey.material.widget.CheckBox;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+
+import io.paperdb.Paper;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -30,6 +33,8 @@ public class LoginActivity extends AppCompatActivity {
     private Button loginButton;
     private ProgressDialog loadingBar;
     private String parentDbName = "Users";
+    private CheckBox checkBoxRemeberMe;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,6 +49,12 @@ public class LoginActivity extends AppCompatActivity {
         inputPassword = findViewById(R.id.login_password_input);
         inputPhoneNumber = findViewById(R.id.login_phoneNumber_input);
         loadingBar = new ProgressDialog(this);
+        // Using the Paper library
+        checkBoxRemeberMe = findViewById(R.id.rememberMeChk);
+        /**
+         * Initialize  paper DB / android memory db
+         */
+        Paper.init(this);
 
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,6 +84,14 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void AllowAccessToAccount(String phoneNumber, String password) {
+        // before accessing account chek if the user logged in previously
+        if (checkBoxRemeberMe.isChecked()){
+            // write the phonenumber to android phone mem
+            Paper.book().write(Prevalent.userPhoneKey, phoneNumber);
+            // write password to android phone memory
+            Paper.book().write(Prevalent.userPasswordKey, password);
+        }
+
         final DatabaseReference rootRef;
         rootRef = FirebaseDatabase.getInstance().getReference();
         rootRef.addListenerForSingleValueEvent(new ValueEventListener() {

@@ -11,6 +11,8 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import io.paperdb.Paper;
+
 public class HomeActivity extends AppCompatActivity {
 
     private Button logoutBtn;
@@ -28,6 +30,9 @@ public class HomeActivity extends AppCompatActivity {
         logoutBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // if user clicks this button, all saved credentials on android memory will be destroyed
+                Paper.book().destroy();
+
                 Intent intent = new Intent(HomeActivity.this, MainActivity.class);
                 startActivity(intent);
             }

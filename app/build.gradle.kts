@@ -53,5 +53,5 @@ dependencies {
     implementation (libs.rey5137.material)
     implementation (libs.cardview)
     implementation (libs.recyclerview.v100)
-
+    implementation(libs.paperdb)
 }

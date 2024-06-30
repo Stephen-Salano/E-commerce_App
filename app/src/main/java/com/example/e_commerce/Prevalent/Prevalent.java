@@ -7,4 +7,9 @@ import com.example.e_commerce.Model.Users;
  */
 public class Prevalent {
     private static Users currentOnlineUser;
+
+    // for the remember me
+    public static final String userPhoneKey = "UserPhone";
+    public static final String userPasswordKey = "UserPassword";
+
 }
