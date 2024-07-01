@@ -1,1 +1,7 @@
 /build
+# Ignore IDE-specific files
+.gradle/
+.idea/
+.iml/
+app/build/
+module-name/build/
