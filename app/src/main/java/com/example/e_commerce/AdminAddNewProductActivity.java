@@ -11,6 +11,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class AdminAddNewProductActivity extends AppCompatActivity {
 
+    private String categoryName;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,8 +22,11 @@ public class AdminAddNewProductActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        // TODO: Finish with admin page
-        // Toast message for now
-        Toast.makeText(this, "Welcome Admin", Toast.LENGTH_SHORT).show();
+
+        // getting each category
+        categoryName = getIntent().getExtras().get("category").toString();
+        // displaying on Toast to see if it works
+        Toast.makeText(this, categoryName, Toast.LENGTH_SHORT).show();
+
     }
 }

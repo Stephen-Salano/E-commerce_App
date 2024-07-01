@@ -74,14 +74,11 @@ public class LoginActivity extends AppCompatActivity {
             // using a different database reference name
             parentDbName = "Admins";
         });
-        notAdminLink.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                loginButton.setText("Login");
-                notAdminLink.setVisibility(View.INVISIBLE);
-                adminLink.setVisibility(View.VISIBLE);
-                parentDbName = "Users";
-            }
+        notAdminLink.setOnClickListener(v -> {
+            loginButton.setText("Login");
+            notAdminLink.setVisibility(View.INVISIBLE);
+            adminLink.setVisibility(View.VISIBLE);
+            parentDbName = "Users";
         });
     }
 
@@ -120,19 +117,19 @@ public class LoginActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.child(parentDbName).child(phoneNumber).exists()){
                     Users usersData = snapshot.child(parentDbName).child(phoneNumber).getValue(Users.class);
-                    if (usersData.getPhone().equals(phoneNumber)){
-                        if (usersData.getPassword().equals(password)){
+                    if ((usersData != null) && usersData.getPhone().equals(phoneNumber)) {
+                        if (usersData.getPassword().equals(password)) {
                             /*
                              checking the name of the database
                              if db == admin -> take to admin panel
                              if db == user -> take to user / HomeActivity
                              */
 
-                            if (parentDbName.equals("Admins")){
+                            if (parentDbName.equals("Admins")) {
                                 Toast.makeText(LoginActivity.this, "Welcome admin", Toast.LENGTH_SHORT).show();
                                 loadingBar.dismiss();
                                 // send the user to the admin activity
-                                Intent intent = new Intent(LoginActivity.this, AdminAddNewProductActivity.class);
+                                Intent intent = new Intent(LoginActivity.this, AdminCategoryActivity.class);
                                 startActivity(intent);
                             } else if (parentDbName.equals("Users")) {
                                 Toast.makeText(LoginActivity.this, "Logged in successfully", Toast.LENGTH_SHORT).show();
@@ -141,7 +138,7 @@ public class LoginActivity extends AppCompatActivity {
                                 Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
                                 startActivity(intent);
                             }
-                        }else {
+                        } else {
                             loadingBar.dismiss();
                             Toast.makeText(LoginActivity.this, "Password is incorrect", Toast.LENGTH_SHORT).show();
                         }
