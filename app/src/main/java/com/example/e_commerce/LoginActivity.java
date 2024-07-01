@@ -7,6 +7,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -34,6 +35,7 @@ public class LoginActivity extends AppCompatActivity {
     private ProgressDialog loadingBar;
     private String parentDbName = "Users";
     private CheckBox checkBoxRemeberMe;
+    private TextView adminLink, notAdminLink;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,17 +51,36 @@ public class LoginActivity extends AppCompatActivity {
         inputPassword = findViewById(R.id.login_password_input);
         inputPhoneNumber = findViewById(R.id.login_phoneNumber_input);
         loadingBar = new ProgressDialog(this);
+        // admin links
+        adminLink = findViewById(R.id.admin_panel_link);
+        notAdminLink = findViewById(R.id.regular_link);
         // Using the Paper library
         checkBoxRemeberMe = findViewById(R.id.rememberMeChk);
-        /**
+        /*
          * Initialize  paper DB / android memory db
          */
         Paper.init(this);
 
-        loginButton.setOnClickListener(new View.OnClickListener() {
+        loginButton.setOnClickListener(v -> loginUser());
+
+        // listening to button click of admin
+        adminLink.setOnClickListener(v -> {
+            // step 1: change text of the login button when admin is clicked
+            loginButton.setText("Login as Admin");
+            // step2: Change visibility of the admin Link
+            adminLink.setVisibility(View.INVISIBLE);
+            // step 3: set visibility of not admin / reguler user link to appear
+            notAdminLink.setVisibility(View.VISIBLE);
+            // using a different database reference name
+            parentDbName = "Admins";
+        });
+        notAdminLink.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                loginUser();
+                loginButton.setText("Login");
+                notAdminLink.setVisibility(View.INVISIBLE);
+                adminLink.setVisibility(View.VISIBLE);
+                parentDbName = "Users";
             }
         });
     }
@@ -101,12 +122,25 @@ public class LoginActivity extends AppCompatActivity {
                     Users usersData = snapshot.child(parentDbName).child(phoneNumber).getValue(Users.class);
                     if (usersData.getPhone().equals(phoneNumber)){
                         if (usersData.getPassword().equals(password)){
-                            // TODO: Add login feature later, now just pass success message
-                            Toast.makeText(LoginActivity.this, "Logged in successfully", Toast.LENGTH_SHORT).show();
-                            loadingBar.dismiss();
+                            /*
+                             checking the name of the database
+                             if db == admin -> take to admin panel
+                             if db == user -> take to user / HomeActivity
+                             */
 
-                            Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
-                            startActivity(intent);
+                            if (parentDbName.equals("Admins")){
+                                Toast.makeText(LoginActivity.this, "Welcome admin", Toast.LENGTH_SHORT).show();
+                                loadingBar.dismiss();
+                                // send the user to the admin activity
+                                Intent intent = new Intent(LoginActivity.this, AdminAddNewProductActivity.class);
+                                startActivity(intent);
+                            } else if (parentDbName.equals("Users")) {
+                                Toast.makeText(LoginActivity.this, "Logged in successfully", Toast.LENGTH_SHORT).show();
+                                loadingBar.dismiss();
+                                // send user to HomeActivity
+                                Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
+                                startActivity(intent);
+                            }
                         }else {
                             loadingBar.dismiss();
                             Toast.makeText(LoginActivity.this, "Password is incorrect", Toast.LENGTH_SHORT).show();
