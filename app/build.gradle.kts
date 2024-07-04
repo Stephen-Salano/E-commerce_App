@@ -54,4 +54,9 @@ dependencies {
     implementation (libs.cardview)
     implementation (libs.recyclerview.v100)
     implementation(libs.paperdb)
+    implementation(libs.firebase.storage)
+    implementation(libs.activity.ktx)
+    implementation(libs.glide)
+    annotationProcessor(libs.glide.compiler)
+    implementation(libs.firebase.firestore)
 }

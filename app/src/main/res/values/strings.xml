@@ -6,7 +6,7 @@
     <string name="phoneNumberLabel">Phone Number</string>
     <string name="passwordHint">Password</string>
     <string name="LoginImgBackgroundDescription">Login Background</string>
-    <string name="remeber_me">Remeber Me</string>
+    <string name="remember_me">Remember Me</string>
     <string name="forget_password">Forget Password?</string>
     <string name="login">Login</string>
     <string name="admin_login">I am an admin</string>
@@ -14,5 +14,9 @@
     <string name="create_account">Create Account</string>
     <string name="usernameLabel">Username</string>
     <string name="loadingLinearProgressIndicator">Loading...</string>
-    <string name="please_wait">Please wait...</string>
+    <string name="please_wait">Please wait…</string>
+    <string name="product_name">Product Name…</string>
+    <string name="product_description">Product Description…</string>
+    <string name="product_price">Product Price…</string>
+    <string name="add_product">Add Product</string>
 </resources>
