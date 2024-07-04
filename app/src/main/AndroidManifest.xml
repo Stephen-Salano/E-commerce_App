@@ -16,6 +16,9 @@
             android:name=".AdminAddNewProductActivity"
             android:exported="false" />
         <activity
+            android:name=".AdminCategoryActivity"
+            android:exported="false"/>
+        <activity
             android:name=".HomeActivity"
             android:exported="false" />
         <activity
