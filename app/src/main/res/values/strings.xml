@@ -19,4 +19,22 @@
     <string name="product_description">Product Description…</string>
     <string name="product_price">Product Price…</string>
     <string name="add_product">Add Product</string>
+    <string name="title_activity_home">HomeActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="user_name">user name</string>
+    <string name="tools">Tools</string>
+    <string name="settings">Settings</string>
+    <string name="logout">logout</string>
+    <string name="categories">categories</string>
+    <string name="orders">Orders</string>
+    <string name="cart">Cart</string>
 </resources>

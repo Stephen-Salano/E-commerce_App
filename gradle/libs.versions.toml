@@ -17,6 +17,11 @@ firebase-firestore = "25.0.0"
 paperdb = "2.7.2"
 activityKtx = "1.9.0"
 glide = "4.16.0"
+lifecycleLivedataKtx = "2.6.1"
+lifecycleViewmodelKtx = "2.6.1"
+navigationFragment = "2.7.7"
+navigationUi = "2.7.7"
+circleImageViewVersion = "3.1.0"
 
 
 [libraries]
@@ -41,6 +46,11 @@ firebase-storage = { group = "com.google.firebase", name = "firebase-storage" }
 activity-ktx = { group = "androidx.activity", name = "activity-ktx", version.ref = "activityKtx" }
 glide = { group = "com.github.bumptech.glide", name = "glide", version.ref = "glide" }
 glide-compiler = { group = "com.github.bumptech.glide", name = "compiler", version.ref = "glide" }
+lifecycle-livedata-ktx = { group = "androidx.lifecycle", name = "lifecycle-livedata-ktx", version.ref = "lifecycleLivedataKtx" }
+lifecycle-viewmodel-ktx = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "lifecycleViewmodelKtx" }
+navigation-fragment = { group = "androidx.navigation", name = "navigation-fragment", version.ref = "navigationFragment" }
+navigation-ui = { group = "androidx.navigation", name = "navigation-ui", version.ref = "navigationUi" }
+circleimageview = { group = "de.hdodenhof", name = "circleimageview", version.ref = "circleImageViewVersion" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

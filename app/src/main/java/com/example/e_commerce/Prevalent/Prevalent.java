@@ -12,4 +12,14 @@ public class Prevalent {
     public static final String userPhoneKey = "UserPhone";
     public static final String userPasswordKey = "UserPassword";
 
+    // getters and setters
+
+
+    public static Users getCurrentOnlineUser() {
+        return currentOnlineUser;
+    }
+
+    public static void setCurrentOnlineUser(Users currentOnlineUser) {
+        Prevalent.currentOnlineUser = currentOnlineUser;
+    }
 }
