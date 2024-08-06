@@ -65,10 +65,11 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-//        View headerView = navigationView.getHeaderView(0);
-//        TextView userNameTextView = headerView.findViewById(R.id.user_profile_name);
-//        CircleImageView profileImageView = headerView.findViewById(R.id.user_profile_image);
-//        userNameTextView.setText(Prevalent.getCurrentOnlineUser().getUsername());
+
+        View headerView = navigationView.getHeaderView(0);
+        TextView userNameTextView = headerView.findViewById(R.id.user_profile_name);
+        CircleImageView profileImageView = headerView.findViewById(R.id.user_profile_image);
+        userNameTextView.setText(Prevalent.getCurrentOnlineUser().getUsername());
 //        Picasso
 
     }
