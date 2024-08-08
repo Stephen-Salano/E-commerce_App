@@ -79,15 +79,15 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         View headerView = navigationView.getHeaderView(0);
         TextView userNameTextView = headerView.findViewById(R.id.user_profile_name);
         CircleImageView profileImageView = headerView.findViewById(R.id.user_profile_image);
-        if (Prevalent.getCurrentOnlineUser() == null) {
+        if (Prevalent.getCurrentOnlineUser() != null) {
+            userNameTextView.setText(Prevalent.currentOnlineUser.getUsername());
+        } else {
             // Show an error message using a Toast, Snackbar, or Dialog
             Toast.makeText(this, "No current online user, redirecting to login", Toast.LENGTH_SHORT).show();
             // using intent to redirect to login page if no current online user is found
             Intent intent = new Intent(HomeActivity.this, LoginActivity.class);
             startActivity(intent);
             finish();
-        } else {
-            userNameTextView.setText(Prevalent.currentOnlineUser.getUsername());
         }
 
         recyclerView = findViewById(R.id.recycler_menu);

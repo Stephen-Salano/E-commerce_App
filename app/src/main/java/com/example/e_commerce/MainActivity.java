@@ -88,12 +88,13 @@ public class MainActivity extends AppCompatActivity {
                     Users usersData = snapshot.child(parentDbName).child(phoneNumber).getValue(Users.class);
                     if (usersData != null && usersData.getPhone().equals(phoneNumber)) {
                         if (usersData.getPassword().equals(password)) {
-                            // TODO: Add login feature later, now just pass success message
                             Toast.makeText(MainActivity.this, "Logged in successfully", Toast.LENGTH_SHORT).show();
                             loadingBar.dismiss();
 
                             Intent intent = new Intent(MainActivity.this, HomeActivity.class);
                             startActivity(intent);
+                            // set current online user so that the drawable can pick the user name
+                            Prevalent.currentOnlineUser = usersData;
                         } else {
                             loadingBar.dismiss();
                             Toast.makeText(MainActivity.this, "Password is incorrect", Toast.LENGTH_SHORT).show();
