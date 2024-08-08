@@ -37,4 +37,7 @@
     <string name="categories">categories</string>
     <string name="orders">Orders</string>
     <string name="cart">Cart</string>
+    <string name="user_product_name">Product Name</string>
+    <string name="poduct_description">Poduct Description</string>
+    <string name="user_product_description">Product Description</string>
 </resources>

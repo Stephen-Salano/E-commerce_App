@@ -117,7 +117,8 @@ public class AdminAddNewProductActivity extends AppCompatActivity {
 
         // getting the date and time and storing them as a key
         Calendar calendar = Calendar.getInstance();
-        SimpleDateFormat currentDate = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
+        // Using the `dd-MM-yyyy` format becuase firebase interprets `dd/mm/yyyy` as file path
+        SimpleDateFormat currentDate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault());
         saveCurrentDate = currentDate.format(calendar.getTime());
 
         SimpleDateFormat currenttime = new SimpleDateFormat("HH:mm:ss a", Locale.getDefault());

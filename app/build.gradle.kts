@@ -68,4 +68,7 @@ dependencies {
     annotationProcessor(libs.glide.compiler)
     implementation(libs.firebase.firestore)
     implementation(libs.circleimageview)
+    implementation(libs.firebase.ui.database)
+    implementation(libs.picasso)
+
 }
